@@ -6,4 +6,4 @@ if guess == number:
     print('You guessed correct!')
 else:
     txt = 'You guessed the wrong number, the number was {}'
-    print(txt.format(number))]
+    print(txt.format(number))
