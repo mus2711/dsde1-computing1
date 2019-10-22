@@ -1,0 +1,5 @@
+print('What is your name?')
+a = input()
+print('Your name is {}'.format(a))
+b = input('hi say it again, your name is ')
+print(b)
