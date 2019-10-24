@@ -32,12 +32,11 @@ def parameter_list(the_list, beginning, end):
 # same value. For example if the_list = [0,1,2,3,4] and index = 3 the function
 # will return [0,1,2,3,3,3,4]. 
 def repeat_at_index(the_list, index):
-    for x in range(2):
-        the_list.insert(index, the_list[index])
-    return the_list
-
+    new_list = the_list
+    new_list.insert(index, the_list[index])
+    new_list.insert(index, the_list[index])
+    return new_list
 # Strings
-
 # write a function that checks whether the word is a palindrome, i.e. it reads
 # the same forward and backwards
 def palindrome_word(word):
