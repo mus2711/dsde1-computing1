@@ -8,5 +8,5 @@ def period(length , gravity):
     else: 
         raise(TypeError)
 
-print(period(7.5,'helo'))
+# print(period(7.5,'helo'))
             

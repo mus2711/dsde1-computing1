@@ -20,12 +20,14 @@ def first_and_last(the_list):
 # reverse order than in the original "the_list". 
 # If "end" is greater then "beginning" or any og the indices is out of the
 # list, raise a "ValueError" exception. 
-def parameter_list(the_list, beginning, end):
-    if beginning < end:
-        new_list = the_list[beginning:end]
-        new_list.reverse()
+def part_reverse(the_list, beginning, end):
+    try:
+        if beginning < end:
+            if the_list[beginning] and the_list[end]:
+                new_list = the_list[beginning:end]
+                new_list.reverse()
         return new_list
-    else:
+    except ValueError:
         return ValueError
 
 # write a function that at the "index" of "the_list" inserts three times the
@@ -40,6 +42,7 @@ def repeat_at_index(the_list, index):
 # write a function that checks whether the word is a palindrome, i.e. it reads
 # the same forward and backwards
 def palindrome_word(word):
+    word = word.lower()
     if word == word[::-1]:
         return True
     else: 
@@ -54,9 +57,9 @@ def palindrome_sentence(sentence):
     sentence = sentence.lower()
     s = ''.join([x for x in sentence if x in valid])
     if s == s[::-1]:
-        return 'Sentence is a palindrome.'
+        return True
     else:
-        return "Sentence is not a palindrome"
+        return False
 
 # write a function that concatenates two sentences. First the function checks
 # whether the sentence meets the following criteria: it starts with a capital
@@ -84,7 +87,7 @@ def concatenate_sentences(sentenece1, sentence2):
 
 # write a function that checks whether there is a record with given key in the
 # dictionary. Return True or False.
-def index_exists(key, **dictionary):
+def index_exists(dictionary, key):
     if key in dictionary:
         return True
     else:
@@ -92,7 +95,7 @@ def index_exists(key, **dictionary):
 
 # write a function which checks whether given value is stored in the
 # dictionary. Return True or False.
-def value_exists(value, **dictionary):
+def value_exists(dictionary, value):
     if value in dictionary.values():
         return True
     else:
@@ -102,17 +105,3 @@ def value_exists(value, **dictionary):
 # from dictionary1 and dictionary2.
 def merge_dictionaries(dictionary1, dictionary2):
     return {**dictionary1, **dictionary2}
-
-if __name__ == '__main__':
-    print(first_and_last([0,1,2,3,4]))
-    print(parameter_list([0,1,2,3,4],2,4))
-    print(repeat_at_index([0,1,2,3,4],4))
-    print(palindrome_word('bob'))
-    print(palindrome_sentence('Mr. Owl ate my metal worm'))
-    print(concatenate_sentences('        Hello my', 'friend.          '))
-    print(index_exists('brand', brand = "Ford", model = "Mustang", year = 1964))
-    print(value_exists(1964, brand = "Ford", model = "Mustang", year = 1964))
-    dict1 = {'brand' : "Ford", 'model' : "Mustang", 'year' : 1964}
-    dict2 = {'a': 10, 'b': 8}
-    print(merge_dictionaries(dict1, dict2))
-    print("Done.")
